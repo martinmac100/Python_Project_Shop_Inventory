@@ -15,5 +15,29 @@ def select_all():
     results = run_sql(sql)
     for result in results:
         product = Product(result["model"], result["description"], result["colour"], result["buy_price"], result["sell_price"], result["id"])
+        products.append(product)
     return products
 
+def select(id):
+    sql = "SELECT * FROM products WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+    product = Product(result["model"], result["description"], result["colour"], result["buy_price"], result["sell_price"], result["id"])
+    return product
+
+
+def delete_all():
+    sql = "DELETE FROM product"
+    run_sql(sql)
+
+
+def delete(id):
+    sql = "DELETE FROM product WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def update(product):
+    sql = "UPDATE products SET model = %s WHERE id = %s"
+    values = [product.model, product.id]
+    run_sql(sql, values)
