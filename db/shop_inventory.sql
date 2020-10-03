@@ -13,6 +13,6 @@ CREATE TABLE products (
 CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    country_of_origin VARCHAR(255)
+    country VARCHAR(255)
 
 );
