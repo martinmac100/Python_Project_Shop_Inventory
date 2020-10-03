@@ -8,3 +8,12 @@ def save(product):
     results = run_sql(sql, values)
     id = results[0]['id']
     product.id = id
+
+def select_all():
+    products =  []
+    sql = "SELECT * FROM products"
+    results = run_sql(sql)
+    for result in results:
+        product = Product(result["model"], result["description"], result["colour"], result["buy_price"], result["sell_price"], result["id"])
+    return products
+
