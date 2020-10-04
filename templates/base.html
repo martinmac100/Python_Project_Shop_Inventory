@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&family=Sanchez&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>INVENT-X</title>
+</head>
+<body>
+    <header>
+        <h1>INVENT-X Your Stock Inventory Application</h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/products">Products</a>
+                </li>
+                <li>
+                    <a href="/manufacturers">Manufacturers</a>
+                </li>
+                <li>
+                    <a href="/products/new">Add Product</a>
+                </li>
+                <li>
+                    <a href="/manufacturers/new">Add Manufacturer</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
