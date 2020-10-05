@@ -5,7 +5,7 @@ import repositories.product_repository as product_repository
 
 class TestProduct(unittest.TestCase):
     def setUp(self):
-        self.product = Product("Iphone SE", "5.5 inches", "Rose Gold", 299, 399)
+        self.product = Product("Iphone SE", "5.5 inches", "Rose Gold", 299, 399, 50, "Apple")
         self.manufacturer = Manufacturer("Apple", "USA")
     
     def test_product_has_description(self):
@@ -20,6 +20,3 @@ class TestProduct(unittest.TestCase):
     def test_product_has_sell_price(self):
         self.assertEqual(399, self.product.sell_price)
 
-
-    # def test_select_all_products(self):
-    #     self.assertEqual(("Iphone SE", "5.5 inches", "Rose Gold", 299, 399), product_repository.select_all.products)

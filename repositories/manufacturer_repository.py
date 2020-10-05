@@ -3,11 +3,12 @@ from models.product import Product
 from models.manufacturer import Manufacturer
 
 def save(manufacturer):
-    sql = "INSERT INTO manufacturers (name, country) VALUES (%s, %s) RETURNING id"
+    sql = "INSERT INTO manufacturers (name, country) VALUES (%s, %s) RETURNING *"
     values = [manufacturer.name, manufacturer.country]
     results = run_sql(sql, values)
     id = results[0]['id']
     manufacturer.id = id
+    return manufacturer
 
 def select_all():
     manufacturers =  []
@@ -27,12 +28,12 @@ def select(id):
 
 
 def delete_all():
-    sql = "DELETE FROM manufacturer"
+    sql = "DELETE FROM manufacturers"
     run_sql(sql)
 
 
 def delete(id):
-    sql = "DELETE FROM manufacturer WHERE id = %s"
+    sql = "DELETE FROM manufacturers WHERE id = %s"
     values = [id]
     run_sql(sql, values)
 

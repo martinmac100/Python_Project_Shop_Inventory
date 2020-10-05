@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update a Product</h2>
+
+<form action="/products/edit" method="POST">
+    <div>
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" value="{{product.model}}">
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{product.description}}">
+    </div>
+    <div>
+        <label for="colour">Colour:</label>
+        <input type="text" id="colour" name="colour" value="{{product.colour}}">
+    </div>
+    <div>
+        <label for="buy-price">Buy Price:</label>
+        <input type="number" id="buy_price" name="buy_price" value="{{product.buy_price}}">
+    </div>
+    <div>
+        <label for="sell-price">Sell Price:</label>
+        <input type="number" id="sell_price" name="sell_price" value="{{product.sell_price}}">
+    </div>
+    <div>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="{{product.quantity}}">
+    </div>
+    <div>
+        <label for="manufacturer_id">Manufacturer:</label>
+        <select name="manufacturer_id" id="manufacturer_id">
+            {% for manufacturer in manufacturers %}
+            <option value="{{manufacturer.id}}">{{manufacturer.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Update">
+    </div>
+</form>
+
+{% endblock %}
