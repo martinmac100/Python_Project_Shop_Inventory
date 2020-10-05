@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update a Manufacturer</h2>
+
+<form action="/manufacturers/edit" method="POST">
+    <div>
+        <label for="name">Manufacturer:</label>
+        <select name="name" id="name">
+            {% for manufacturer in manufacturers %}
+            <option value="{{manufacturer.name}}">{{manufacturer.name}}</option> 
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="{{manufacturer.country}}">
+    </div>
+    <div>
+        <input type="submit" value="Update">
+    </div>
+</form>
+
+{% endblock %}
