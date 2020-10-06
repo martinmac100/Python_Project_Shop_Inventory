@@ -48,3 +48,12 @@ def update(product):
     sql = "UPDATE products SET model = %s WHERE id = %s"
     values = [product.model, product.id]
     run_sql(sql, values)
+
+# def get_total_stock(product):
+#     sql = "SELECT * FROM products"
+#     results = run_sql(sql)
+#     for result in results:
+#         manufacturer = manufacturer_repository.select(result['manufacturer_id'])
+#         product = Product(result["model"], result["description"], result["colour"], result["buy_price"], result["sell_price"], result["quantity"], manufacturer, result["id"])
+#         product_quantity = product.quantity
+#     return product_quantity

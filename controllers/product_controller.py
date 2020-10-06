@@ -61,3 +61,13 @@ def update_product():
 def delete_products(id):
     product_repository.delete(id)
     return redirect("/products")
+
+# SHOW
+# @products_blueprint.route("/products/stock_check")
+# def show_quick_stock():
+#     product_repository.get_total_stock()
+#     return render_template("/products/quick_stock.html")
+
+@products_blueprint.route("/products/quick_stock")
+def show_quick_stock():
+    return render_template("products/quick_stock.html")
