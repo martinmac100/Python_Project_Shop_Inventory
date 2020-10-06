@@ -7,56 +7,43 @@ import repositories.manufacturer_repository as manufacturer_repository
 
 manufacturers_blueprint = Blueprint("manufacturers", __name__)
 
-# INDEX
+
 @manufacturers_blueprint.route("/manufacturers")
 def manufacturer():
     manufacturers = manufacturer_repository.select_all()
     return render_template("/manufacturers/index.html", manufacturers=manufacturers)
 
-# NEW
 @manufacturers_blueprint.route("/manufacturers/new")
 def new_manufacturer():
     manufacturers = manufacturer_repository.select_all()
     return render_template("/manufacturers/new.html", manufacturers = manufacturers)
 
 
-# CREATE
-# @manufacturers_blueprint.route("/products", methods=["POST"])
-# def create_product():
-#     model = request.form["model"]
-#     description = request.form["description"]
-#     colour = request.form["colour"]
-#     buy_price = request.form["buy_price"]
-#     sell_price = request.form["sell_price"]
-#     quantity = request.form["quantity"]
-#     manufacturer = request.form["manufacturer"]
-#     new_product = Product(model, description, colour, buy_price, sell_price, quantity, manufacturer)
-#     product_repository.save(new_product)
-#     return redirect("/products")
+@manufacturers_blueprint.route("/manufacturers", methods=["POST"])
+def create_manufacturer():
+    name = request.form["name"]
+    country = request.form["country"]
+    new_manufacturer = Manufacturer(name, country)
+    manufacturer_repository.save(new_manufacturer)
+    return redirect("/manufacturers")
 
 
-# @manufacturers_blueprint.route("/products/<id>/edit")
-# def edit_product(id):
-#     product = product_repository.select(id)
-#     manufacturers = manufacturer_repository.select_all()
-#     return render_template("products/edit.html", product=product, manufacturers=manufacturers)
+@manufacturers_blueprint.route("/manufacturers/<id>/edit")
+def edit_product(id):
+    manufacturers = manufacturer_repository.select(id)
+    products = product_repository.select_all()
+    return render_template("manufacturers/edit.html", products=products, manufacturers=manufacturers)
 
-# @manufacturers_blueprint.route("/products/edit", methods=['POST'])
-# def update_product():
-#     model = request.form["model"]
-#     description = request.form["description"]
-#     colour = request.form["colour"]
-#     buy_price = request.form["buy_price"]
-#     sell_price = request.form["sell_price"]
-#     quantity = request.form["quantity"]
-#     manufacturer = request.form["manufacturer"]
-#     product = Product(model, description, colour, buy_price, sell_price, quantity, manufacturer)
-#     product_repository.update(product)
-#     return redirect("/products")
+@manufacturers_blueprint.route("/manufacturers/edit", methods=['POST'])
+def update_manufacturer():
+    name = request.form["name"]
+    country = request.form["country"]
+    new_manufacturer = Manufacturer(name, country)
+    manufacturer_repository.update(manufacturer)
+    return redirect("/manufacturers")
 
 
-# DELETE
-# @manufacturers_blueprint.route("/products/<id>/delete", methods=["POST"])
-# def delete_products(id):
-#     product_repository.delete(id)
-#     return redirect("/products")
+@manufacturers_blueprint.route("/manufacturers/<id>/delete", methods=["POST"])
+def delete_manufacturers(id):
+    manufacturer_repository.delete(id)
+    return redirect("/manufacturers")

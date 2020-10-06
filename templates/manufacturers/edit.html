@@ -5,12 +5,8 @@
 
 <form action="/manufacturers/edit" method="POST">
     <div>
-        <label for="name">Manufacturer:</label>
-        <select name="name" id="name">
-            {% for manufacturer in manufacturers %}
-            <option value="{{manufacturer.name}}">{{manufacturer.name}}</option> 
-            {% endfor %}
-        </select>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{manufacturer.name}}">
     </div>
     <div>
         <label for="country">Country:</label>
