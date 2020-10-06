@@ -32,7 +32,7 @@ def create_manufacturer():
 def edit_product(id):
     manufacturers = manufacturer_repository.select(id)
     products = product_repository.select_all()
-    return render_template("manufacturers/edit.html", products=products, manufacturers=manufacturers)
+    return render_template("manufacturers/edit.html", products=products, manufacturer=manufacturers)
 
 @manufacturers_blueprint.route("/manufacturers/edit", methods=['POST'])
 def update_manufacturer():
