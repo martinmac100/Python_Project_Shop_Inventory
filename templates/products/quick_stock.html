@@ -6,9 +6,10 @@
 
  <section>
      {% for product in products  %}
+        <p>{{ product.manufacturer_id.name }}</p>   
         <p>{{ product.model }}</p>
         <p>{{ product.quantity }}</p>
-        <p>{{ product.manufacturer_id.name }}</p>
+
          
      {% endfor %}
 
