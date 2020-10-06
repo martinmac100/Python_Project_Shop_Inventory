@@ -5,6 +5,12 @@
 <h2>Quick Stock Check</h2>
 
  <section>
+     {% for product in products  %}
+        <p>{{ product.model }}</p>
+        <p>{{ product.quantity }}</p>
+        <p>{{ product.manufacturer_id.name }}</p>
+         
+     {% endfor %}
 
 
 

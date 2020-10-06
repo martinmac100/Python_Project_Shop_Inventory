@@ -42,17 +42,17 @@ def edit_product(id):
     manufacturers = manufacturer_repository.select_all()
     return render_template("products/edit.html", product=product, manufacturers=manufacturers)
 
-@products_blueprint.route("/products/edit", methods=['POST'])
-def update_product():
+@products_blueprint.route("/products/<id>", methods=["POST"])
+def update_product(id):
     model = request.form["model"]
     description = request.form["description"]
     colour = request.form["colour"]
     buy_price = request.form["buy_price"]
     sell_price = request.form["sell_price"]
     quantity = request.form["quantity"]
-    manufacturer = request.form["manufacturer"]
-    product = Product(model, description, colour, buy_price, sell_price, quantity, manufacturer)
-    product_repository.update(product)
+    manufacturer = request.form["manufacturer_id"]
+    product1 = Product(model, description, colour, buy_price, sell_price, quantity, manufacturer, id)
+    product_repository.update(product1)
     return redirect("/products")
 
 
@@ -70,4 +70,6 @@ def delete_products(id):
 
 @products_blueprint.route("/products/quick_stock")
 def show_quick_stock():
-    return render_template("products/quick_stock.html")
+    products = product_repository.select_all()
+    manufacturers = manufacturer_repository.select_all()
+    return render_template("products/quick_stock.html", products=products, manufacturers=manufacturers)

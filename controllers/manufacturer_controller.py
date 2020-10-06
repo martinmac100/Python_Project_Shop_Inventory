@@ -34,12 +34,12 @@ def edit_product(id):
     products = product_repository.select_all()
     return render_template("manufacturers/edit.html", products=products, manufacturer=manufacturers)
 
-@manufacturers_blueprint.route("/manufacturers/edit", methods=['POST'])
-def update_manufacturer():
+@manufacturers_blueprint.route("/manufacturers/<id>", methods=['POST'])
+def update_manufacturer(id):
     name = request.form["name"]
     country = request.form["country"]
-    new_manufacturer = Manufacturer(name, country)
-    manufacturer_repository.update(manufacturer)
+    new_manufacturer = Manufacturer(name, country, id)
+    manufacturer_repository.update(new_manufacturer)
     return redirect("/manufacturers")
 
 
