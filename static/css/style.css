@@ -1,6 +1,7 @@
 body {
-    font-family:'Ramabhadra', sans-serif;
-    background-color: lightblue;
+    height: 100%;
+    background: linear-gradient(90deg, #ffffff 60%, #3685ec 40%);
+    font-family: 'Ramabhadra', sans-serif;
 }
 
 body>header>nav>ul
