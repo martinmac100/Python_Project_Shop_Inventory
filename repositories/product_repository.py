@@ -16,7 +16,7 @@ def save(product):
 
 def select_all():
     products =  []
-    sql = "SELECT * FROM products"
+    sql = "SELECT * FROM products ORDER BY manufacturer_id"
     results = run_sql(sql)
     for result in results:
         manufacturer = manufacturer_repository.select(result['manufacturer_id'])

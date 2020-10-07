@@ -3,19 +3,24 @@
 {% block content %}
 
 <h2>Update Manufacturers</h2>
+    </aside class="man_logos">
+    
+   
     
     <section>
-        <a href="manufacturers/1/edit"><img src="static/img/apple_logo.png" alt="Apple Logo" height="80" width="80"></a> <br>
-    </section>
-    <section>
-        <a href="manufacturers/2/edit"><img src="static/img/samsung_logo.png" alt="Samsung Logo" height="100" width="100"></a> <br>
-    </section>    
-    <section>
-        <a href="manufacturers/3/edit"><img src="static/img/google_logo.png" alt="Google Logo" height="80" width="80"></a> <br>
-    </section>
-
+        
+            <a href="/manufacturers/1/edit"><img src="static/img/apple_logo.png" alt="Apple Logo" height="80" width="80"></a> <br>
+        </section>
         <section>
-        {% for manufacturer in manufacturers %}
+            <a href="/manufacturers/2/edit"><img src="static/img/samsung_logo.png" alt="Samsung Logo" height="100" width="100"></a> <br>
+        </section>    
+        <section>
+            <a href="/manufacturers/3/edit"><img src="static/img/google_logo.png" alt="Google Logo" height="80" width="80"></a> <br>
+        </section>
+    </aside>
+            <section>
+
+            {% for manufacturer in manufacturers %}
 
 
             <p>{{ manufacturer.name }}</p>
