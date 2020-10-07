@@ -2,10 +2,14 @@
 
 {% block content %}
 
-<h2>Quick Stock Check</h2>
+<h2 class="header-quick-stock">Quick Stock Check</h2>
 
- <section>
+<section class="quick-stock-container">
+
+
+ 
      {% for product in products  %}
+     <section class="quick-stock-index">
         <p>{{ product.manufacturer_id.name }}</p>
         <p>{{ product.model }}</p>
         <p>{{ product.quantity }}</p>
@@ -24,10 +28,9 @@
                   </p>
               </aside>
               {% endif %}
- 
+            </section>
      {% endfor %} 
-
-
+   
 </section>
 
 
