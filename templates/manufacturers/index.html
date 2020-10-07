@@ -3,21 +3,27 @@
 {% block content %}
 
 <h2>Update Manufacturers</h2>
-    <a href="manufacturers/1/edit"><img src="static/img/apple_logo.png" alt="Apple Logo" height="80" width="80"></a> <br>
-    <a href="manufacturers/2/edit"><img src="static/img/samsung_logo.png" alt="Samsung Logo" height="100" width="100"></a> <br>
-    <a href="manufacturers/3/edit"><img src="static/img/google_logo.png" alt="Google Logo" height="80" width="80"></a> <br>
+    
+    <section>
+        <a href="manufacturers/1/edit"><img src="static/img/apple_logo.png" alt="Apple Logo" height="80" width="80"></a> <br>
+    </section>
+    <section>
+        <a href="manufacturers/2/edit"><img src="static/img/samsung_logo.png" alt="Samsung Logo" height="100" width="100"></a> <br>
+    </section>    
+    <section>
+        <a href="manufacturers/3/edit"><img src="static/img/google_logo.png" alt="Google Logo" height="80" width="80"></a> <br>
+    </section>
+
+        <section>
+        {% for manufacturer in manufacturers %}
 
 
- <section>
- {% for manufacturer in manufacturers %}
-
-
-     <p>{{ manufacturer.name }}</p>
-     <a href="/manufacturers/{{ manufacturer.id }}/edit">Edit</a>
-     <form action="/manufacturers/{{ manufacturer.id }}/delete" method="POST">
-         <input type="submit" value="Delete">
-     </form>
-</section>
+            <p>{{ manufacturer.name }}</p>
+            <a href="/manufacturers/{{ manufacturer.id }}/edit">Edit</a>
+            <form action="/manufacturers/{{ manufacturer.id }}/delete" method="POST">
+                <input type="submit" value="Delete">
+            </form>
+        </section>
 
 {% endfor %}
 {% endblock content %}

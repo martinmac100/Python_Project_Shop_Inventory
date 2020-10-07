@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Sanchez&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&family=Sanchez&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <title>INVENT-X</title>
 </head>
@@ -13,7 +14,7 @@
         <section>
             <a href="http://localhost:5000/"><img src="/static/img/invent_X_Logo.png" alt="INVENT_X Logo" width="300"></a>
         </section>
-        <h1>Your Stock Inventory Application</h1>
+        <h1>Stock Inventory Application</h1>
         <nav>
             <ul class="main_header">
                 <li>
@@ -25,7 +26,7 @@
                 <li>
                     <a href="/manufacturers">Manufacturers</a>
                 </li>
-                <li>
+                <li id="white_colour">
                     <a href="/products/quick_stock">Quick Stock Check</a>
                 </li>
             </ul>
@@ -34,15 +35,22 @@
     {% block content %}
     {% endblock %}
 
-    <!-- <footer>
-        <nav>
-            <ul class="main_footer">
-                <li>
-                    "Copyright 'Invent-X'"
-                </li>    
-            </ul>
-        </nav>
-    </footer> -->
+    
+    <footer>
+                <ul class="footer" >
+                    <li>
+                    10 George Street, Edinburgh EH2 2PH
+                    </li>
+                    <li>
+                        <a href="#">Tel: 0131 123 4567</a>
+                    </li>
+                    <li>
+                        <a href="#">Email: info@invent-x.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
 </body>
 
