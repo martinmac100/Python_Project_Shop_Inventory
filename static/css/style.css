@@ -63,3 +63,11 @@ body {
     #white_colour{
         color: white;
     }
+
+    .early_warning{
+        color: rgb(206, 103, 7);
+    }
+
+    .warning{
+        color: rgb(206, 7, 7);
+    }

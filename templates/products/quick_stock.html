@@ -6,17 +6,27 @@
 
  <section>
      {% for product in products  %}
-        <p>{{ product.manufacturer_id.name }}</p>  br 
+        <p>{{ product.manufacturer_id.name }}</p>
         <p>{{ product.model }}</p>
         <p>{{ product.quantity }}</p>
- 
-     {% endfor %}
 
+         {% if product.quantity == 0 %}
+               <aside class="warning">
+                  <p>
+                      Out of Stock, contact {{ product.manufacturer_id.name }} now!!!
+                  </p>
+              </aside>
 
-         <div class="box light_blue"></div> 
-         <div class="box light_blue"></div> 
-         <div class="box light_blue"></div> 
+              {% elif product.quantity <= 10 %}
+              <aside class="early_warning">
+                  <p>
+                      Running out of Stock!!!, contact {{ product.manufacturer_id.name}}
+                  </p>
+              </aside>
+              {% endif %}
  
+     {% endfor %} 
+
 
 </section>
 
