@@ -43,17 +43,8 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-
+# UPDATE FIRST THING
 def update(product):
-    sql = "UPDATE products SET model = %s WHERE id = %s"
-    values = [product.model, product.id]
+    sql = "UPDATE products SET (model, description, colour, buy_price, sell_price, quantity, manufacturer_id) = (%s,%s, %s, %s, %s, %s, %s,%s) WHERE id = %s"
+    values = [product.model, product.model, product.description, product.colour, product.buy_price, product.sell_price, product.quantity, product.manufacturer_id, product.id]
     run_sql(sql, values)
-
-# def get_total_stock(product):
-#     sql = "SELECT * FROM products"
-#     results = run_sql(sql)
-#     for result in results:
-#         manufacturer = manufacturer_repository.select(result['manufacturer_id'])
-#         product = Product(result["model"], result["description"], result["colour"], result["buy_price"], result["sell_price"], result["quantity"], manufacturer, result["id"])
-#         product_quantity = product.quantity
-#     return product_quantity

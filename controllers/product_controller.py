@@ -51,8 +51,8 @@ def update_product(id):
     sell_price = request.form["sell_price"]
     quantity = request.form["quantity"]
     manufacturer = request.form["manufacturer_id"]
-    product1 = Product(model, description, colour, buy_price, sell_price, quantity, manufacturer, id)
-    product_repository.update(product1)
+    product = Product(model, description, colour, buy_price, sell_price, quantity, manufacturer, id)
+    product_repository.update(product)
     return redirect("/products")
 
 
