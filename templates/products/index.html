@@ -3,18 +3,21 @@
  {% block content %}
 
 <h2>Products</h2>
-
-  <section>
   {% for product in products %}
 
-
+  <!-- <section class="quick-stock-container-prod"></section>
+    
+  <section class="quick-stock-index-prod"></section> -->
       <p>{{ product.model }}</p>
       <a href="/products/{{ product.id }}/edit">Edit</a>
       <form action="/products/{{ product.id }}/delete" method="POST">
           <input type="submit" value="Delete">
       </form>
+    </section>
  </section>
 
 {% endfor %}
 {% endblock content %}
+<section>
 
+</section>

@@ -69,7 +69,7 @@ body {
     }
 
     .quick-stock-index {
-        border: 1px solid black;
+        border: 1px solid rgb(204, 204, 204);
         margin: 10px;
         padding: 10px;
         overflow-wrap: break-word;
@@ -84,4 +84,21 @@ body {
         flex-wrap: row wrap;
         margin-right: 450px;
         margin-bottom: 70px;
+    }
+    .quick-stock-container-prod {
+        display: flex;
+        flex: 1;
+        justify-content: flex-start;
+        flex-wrap: row wrap;
+        margin-right: 150px;
+        margin-bottom: 200px;
+    }
+
+    .quick-stock-index-prod {
+        border: 1px solid rgb(204, 204, 204);
+        margin: 10px;
+        padding: 10px;
+        overflow-wrap: break-word;
+        width: 10%;
+        height: 25%;
     }
